@@ -43,12 +43,12 @@ update_game_stats() {
 }
 
 # Generate a random number between 1 and 100
-secret_number=$(( ( RANDOM % 100 ) + 1 ))
+secret_number=$(( ( RANDOM % 1000 ) + 1 ))
 attempts=0
 guessed_number=-1
 
 echo "Welcome to the Number Guessing Game!"
-echo "I've picked a number between 1 and 100. Can you guess it?"
+echo "I've picked a number between 1 and 1000. Can you guess it?"
 
 # Prompt the user for a username and validate its length
 while true; do
@@ -68,6 +68,8 @@ if username_exists $username; then
 else
     echo "Welcome, $username! It looks like this is your first time here."
 fi
+
+echo "Guess the secret number between 1 and 1000:"
 
 # Loop until the user guesses the correct number
 while [ $guessed_number -ne $secret_number ]; do
